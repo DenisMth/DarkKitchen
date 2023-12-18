@@ -98,40 +98,41 @@ let  foods_dessert =[
         return {footer,main,header}
     }
     divise_body()
-    
-    function createDesserts() {
-        foods_dessert.forEach((food, index) => {
-            let foodArticle = document.createElement("article");
-            let foodPrice = document.createElement("b");
-            let foodImg = document.createElement("img");
-            let foodName = document.createElement("h2");
-            let foodIngredients = document.createElement("button");
-            let foodVegan = document.createElement("p");
-    
-            foodArticle.setAttribute("class", "dessert_" + index);
-            foodArticle.style.backgroundImage = `url(${food.img})`;
-    
-            foodImg.src = food.img;
-            foodImg.alt = "Image of " + food.name;
-            foodImg.title = "Description: bla bla bla";
-    
-            foodPrice.textContent = "Price: $" + food.price;
-            foodName.textContent = food.name;
-            foodIngredients.textContent = "Ingredients: " + food.ingredients.join(", ");
-    
-            if (food.vegetarian) {
-                foodVegan.textContent = "Vegetarian";
-            }
-    
-            foodArticle.appendChild(foodPrice);
-            foodArticle.appendChild(foodImg);
-            foodArticle.appendChild(foodName);
-            foodArticle.appendChild(foodIngredients);
-            foodArticle.appendChild(foodVegan);
-    
-            document.querySelector('main').appendChild(foodArticle);
+
+    function create_dessert() {
+        foods_dessert.forEach((food,index) => {
+            let food_Article = document.createElement("article");
+            let food_Price = document.createElement("b");
+            let food_Img = document.createElement("img");
+            let food_Name = document.createElement("h2");
+            let food_Ingredients = document.createElement("button");
+            let food_Vegan = document.createElement("p");
+            
+
+            food_Article.setAttribute("class", "dessert_"+ index );
+            food_Article.style.backroudImage = 'url(${food.img})'
+            food_img.src = foods_dessert.imgFile;
+            food_img.alt = "image de " + foods.name;
+            food_img.title = "bla bla bla";
+            
+            food_Price.textContent = "Price: $" + food.price;
+            food_Img.src = food.img;
+            food_Img.alt = food.name;
+            food_Name.textContent = food.name;
+            food_Ingredients.textContent = "Ingredients: " + food.ingredients.join(", ");
+
+        if (food.vegetarian) {
+            food_Vegan.textContent = "Vegetarian";
+        }
+           food_Article.appendChild(food_Price) ;
+           food_Article.appendChild(food_Img) ;
+           food_Article.appendChild(food_Name) ;
+           food_Article.appendChild(food_Ingredients) ;
+           food_Article.appendChild(food_Vegan)
+
+           document.querySelector('main').appendChild(food_Article);
+        
         });
     }
-    
-    createDesserts();
+        create_dessert()
     
