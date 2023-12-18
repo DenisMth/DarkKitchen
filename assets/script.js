@@ -4,84 +4,84 @@ let  foods_dessert =[
         ingredients: ["butter", "vanilla extract", "sugar", "chocolate", "milk", "eggs"],
         vegetarian: true,
         price: "5.20",
-        img: 'chocolate_cake.jpg'
+        img: 'assets/images/chocolate_cake.jpg'
       },
       {
         name: "Cheesecake",
         ingredients: ["cream cheese", "sugar", "eggs", "vanilla extract", "butter", "graham cracker crust"],
         vegetarian: true,
         price: "6.50",
-        img: 'cheesecake.jpg'
+        img: 'assets/images/cheesecake.jpg'
       },
       {
         name: "Apple Pie",
         ingredients: ["apples", "sugar", "cinnamon", "nutmeg", "butter", "pie crust"],
         vegetarian: true,
         price: "4.75",
-        img: 'apple_pie.jpg'
+        img: 'assets/images/apple_pie.jpg'
       },
       {
         name: "Tiramisu",
         ingredients: ["ladyfingers", "espresso", "mascarpone cheese", "cocoa powder", "eggs", "sugar"],
         vegetarian: true,
         price: "7.00",
-        img: 'tiramisu.jpg'
+        img: 'assets/images/tiramisu.jpg'
       },
       {
         name: "Ice Cream Sundae",
         ingredients: ["vanilla ice cream", "chocolate syrup", "whipped cream", "nuts", "cherry"],
         vegetarian: true,
         price: "4.50",
-        img: 'ice_cream_sundae.jpg'
+        img: 'assets/images/ice_cream_sundae.jpg'
       },
       {
         name: "Pecan Pie",
         ingredients: ["pecans", "corn syrup", "eggs", "sugar", "butter", "pie crust"],
         vegetarian: true,
         price: "6.25",
-        img: 'pecan_pie.jpg'
+        img: 'assets/images/pecan_pie.jpg'
       },
       {
         name: "Strawberry Shortcake",
         ingredients: ["strawberries", "whipped cream", "shortcake biscuits"],
         vegetarian: true,
         price: "5.75",
-        img: 'strawberry_shortcake.jpg'
+        img: 'assets/images/strawberry_shortcake.jpg'
       },
       {
         name: "Mousse au Chocolat",
         ingredients: ["dark chocolate", "whipping cream", "sugar", "egg yolks"],
         vegetarian: true,
         price: "8.00",
-        img: 'mousse_au_chocolat.jpg'
+        img: 'assets/images/mousse_au_chocolat.jpg'
       },
       {
         name: "Red Velvet Cupcakes",
         ingredients: ["flour", "cocoa powder", "buttermilk", "cream cheese frosting"],
         vegetarian: true,
         price: "3.95",
-        img: 'red_velvet_cupcakes.jpg'
+        img: 'assets/images/red_velvet_cupcakes.jpg'
       },
       {
         name: "Lemon Sorbet",
         ingredients: ["lemons", "sugar", "water"],
         vegetarian: true,
         price: "4.25",
-        img: 'lemon_sorbet.jpg'
+        img: 'assets/images/lemon_sorbet.jpg'
       },
       {
         name: "Cannoli",
         ingredients: ["ricotta cheese", "powdered sugar", "cinnamon", "pistachios", "cannoli shells"],
         vegetarian: true,
         price: "6.75",
-        img: 'cannoli.jpg'
+        img: 'assets/images/cannoli.jpg'
       },
       {
         name: "Banana Split",
         ingredients: ["banana", "vanilla ice cream", "chocolate syrup", "strawberry topping", "whipped cream", "nuts", "cherry"],
         vegetarian: true,
         price: "7.50",
-        img: 'banana_split.jpg'
+        img: 'assets/images/banana_split.jpg'
       }
     ];   
     
