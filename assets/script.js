@@ -1,4 +1,4 @@
-import food_mainCourse as mainCourse from "assets/mainCourse.js"
+import food_mainCourse as mainCourse from "assets/mainCourse.js";
 
 for (elem of mainCourse){
     console.log(elem.name);
