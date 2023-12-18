@@ -1,3 +1,5 @@
+export {food_mainCourse};
+
 const food_mainCourse = [
     {
         name : "Vol-au-vent",
@@ -95,6 +97,7 @@ const food_mainCourse = [
         price : 8.23,
     },
 ];
+
 
 
 
