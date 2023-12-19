@@ -4,84 +4,84 @@ let food_entrees = [
         ingredients: ["tomatoes", "fresh basil", "garlic", "baguette"],
         vegetarian: true,
         price: 6.99,
-        img: "img/bruschetta.jpg"
+        img: "assets/resources/images/bruschetta.jpg"
     },
     {
         name: "Deviled Eggs",
         ingredients: ["eggs", "mayonnaise", "mustard", "paprika"],
         vegetarian: true,
         price: 5.50,
-        img: "img/deviled eggs.jpg",
+        img: "assets/resources/images/deviled eggs.jpg",
     },
     {
         name: "Stuffed Mushrooms",
         ingredients: ["mushrooms", "cream cheese", "garlic", "breadcrumbs"],
         vegetarian: true,
         price: 7.25,
-        img: "img/Stuffed-Mushrooms-main-1-1.webp"
+        img: "assets/resources/images/Stuffed-Mushrooms-main-1-1.webp"
     },
     {
         name: "Tomato Soup",
         ingredients: ["Tomato", "cheese", "bread", "garlic"],
         vegetarian: true,
         price: 8.99,
-        img: "img/easy-tomato-soup-9.jpg"
+        img: "assets/resources/images/easy-tomato-soup-9.jpg"
     },
     {
         name: "Crispy Chicken Wings",
         ingredients: ["chicken wings", "buffalo sauce", "celery", "ranch dressing"],
         vegetarian: false,
         price: 9.99,
-        img: "img/fried-chicken-wings-5.webp"
+        img: "assets/resources/images/fried-chicken-wings-5.webp"
     },
     {
         name: "Vegetable Spring Rolls",
         ingredients: ["cabbage", "carrots", "bell peppers", "soy sauce", "rice paper"],
         vegetarian: true,
         price: 8.90,
-        img: "img/Vegetable-Spring-Rolls-2.webp"
+        img: "assets/resources/images/Vegetable-Spring-Rolls-2.webp"
     },
     {
         name: "Garlic Bread",
         ingredients: ["baguette", "butter", "garlic", "parsley"],
         vegetarian: true,
         price: 4.75,
-        img: "img/Garlic-Bread-4.webp"
+        img: "assets/resources/images/Garlic-Bread-4.webp"
     },
     {
         name: "Caprese Skewers",
         ingredients: ["cherry tomatoes", "mozzarella balls", "fresh basil", "balsamic glaze"],
         vegetarian: true,
         price: 7.50,
-        img: "img/Caprese-Skewers-blog-2.webp"
+        img: "assets/resources/images/Caprese-Skewers-blog-2.webp"
     },
     {
         name: "Potato Skins",
         ingredients: ["potatoes", "cheddar cheese", "bacon bits", "sour cream"],
         vegetarian: false,
         price: 6.75,
-        img: "img/Potato-Skins-DSC_1782-II-Recipe-Card.jpg"
+        img: "assets/resources/images/Potato-Skins-DSC_1782-II-Recipe-Card.jpg"
     },
     {
         name: "Spinach Dip",
         ingredients: ["spinach", "cream cheese", "sour cream", "garlic"],
         vegetarian: true,
         price: 6.25,
-        img: "img/spinach-artichoke-dip-1-2.jpg",
+        img: "assets/resources/images/spinach-artichoke-dip-1-2.jpg",
     },
     {
         name: "Mozzarella Sticks",
         ingredients: ["mozzarella cheese sticks", "breadcrumbs", "marinara sauce"],
         vegetarian: true,
         price: 7.50,
-        img: "img/Homemade-Mozzarella-Sticks-9.jpeg"
+        img: "assets/resources/images/Homemade-Mozzarella-Sticks-9.jpeg"
     },
     {
         name: "Guacamole with Tortilla Chips",
         ingredients: ["avocado", "tomatoes", "onion", "lime", "tortilla chips"],
         vegetarian: true,
         price: 8.25,
-        img: "img/guacamole-with-tortilla-chips Mobile-1300x1150.webp",
+        img: "assets/resources/images/guacamole-with-tortilla-chips Mobile-1300x1150.webp",
     },
 ];
 
