@@ -292,10 +292,11 @@ divise_body()
 function create_cards(list,type) {
     let titre = document.createElement("h1")
     titre.textContent = "List of " + type ;
-    document.querySelector('main').appendChild(titre)
+    document.querySelector('header').appendChild(titre)
     
     list.forEach((food, index) => {
         let foodArticle = document.createElement("article");
+        let section = document.createElement("section")
         let foodPrice = document.createElement("button");
         let foodImg = document.createElement("img");
         let foodName = document.createElement("h2");
@@ -318,15 +319,29 @@ function create_cards(list,type) {
         }
 
         foodArticle.appendChild(foodPrice);
-        foodArticle.appendChild(foodName);
-        foodArticle.appendChild(foodIngredients);
+        section.appendChild(foodName);
+        foodArticle.appendChild(section)
+        section.appendChild(foodIngredients);
         foodArticle.appendChild(foodVegan);
 
         document.querySelector('main').appendChild(foodArticle);
     });
 }
 
+function dark_mode() {
+    let body = document.body;
+    body.classList.toggle("dark-mode");
+  }
+  
+  function create_button() {
+    let button = document.createElement("button");
+    button.addEventListener('click', dark_mode);
+    document.querySelector('header').appendChild(button);
+  }
+
+
 create_cards(food_entrees,"entrees");
-/*create_cards(food_mainCourse,"mainCourse");
+create_cards(food_mainCourse,"mainCourse");
 create_cards(food_desserts,"dessert");
-*/
+create_button()
+
