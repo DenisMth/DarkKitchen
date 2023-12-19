@@ -11,7 +11,7 @@ let food_entrees = [
         ingredients: ["eggs", "mayonnaise", "mustard", "paprika"],
         vegetarian: true,
         price: 5.50,
-        picture: 'assets/resources/images/"deviled_eggs".jpg',
+        picture: 'assets/resources/images/deviled_eggs.jpg',
     },
     {
         name: "Stuffed Mushrooms",
@@ -81,7 +81,7 @@ let food_entrees = [
         ingredients: ["avocado", "tomatoes", "onion", "lime", "tortilla chips"],
         vegetarian: true,
         price: 8.25,
-        picture: "assets/resources/images/guacamole-with-tortilla-chips Mobile-1300x1150.webp",
+        picture: "assets/resources/images/guacamole-with-tortilla-chips.jpg",
     },
 ];
 
