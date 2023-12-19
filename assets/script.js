@@ -335,6 +335,7 @@ function dark_mode() {
   
   function create_button() {
     let button = document.createElement("button");
+    button.className = "darkMode";
     button.addEventListener('click', dark_mode);
     document.querySelector('header').appendChild(button);
   }

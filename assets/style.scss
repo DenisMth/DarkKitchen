@@ -8,8 +8,12 @@ body {
 }
 
 .dark-mode{
-    background-color : gray;
-    color:white;
+    background-color : rgb(58, 58, 58);
+    color:rgb(214, 214, 214);
+
+    button{
+        background-color: rgb(255, 140, 0);
+    }
 }
 
 main {
@@ -46,7 +50,7 @@ section{
     padding : 0.5rem 1rem 1rem 1rem;
     overflow:hidden;
     transition:all .3s;
-    border-radius:1rem;
+    border-radius:0 0 1rem 1rem;
 }
 
 h2 {
@@ -74,6 +78,13 @@ button {
     }
 }
 
+.darkMode{
+    border-radius : 100%;
+    padding:1rem;
+    top :0.5rem;
+    right :0.5rem;
+    background-color:black;
+}
 
 li{
     color:black;
