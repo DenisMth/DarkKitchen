@@ -1,13 +1,18 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import "__reset.scss";
+@import "__fontStyle.scss";
+@import "__variables.scss";
 
 body {
-    font-family: Arial, sans-serif;
+    width:100%;
 }
 
+main {
+    margin-left: 2rem;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:1rem;
+}
 
 article {
     display: flex;
@@ -15,56 +20,57 @@ article {
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 20rem;
+    height:20rem;
     margin-bottom: 20px;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
 
 
-&entrees__0 {
+.appetizers {
  
-    &:hover .ingredients {
-        opacity: 1;
+    &:hover {
+        opacity: 0.5;
         transform: translateY(0);
     }
 }
 
-article{ 
 
-.h2,
-.b,
-.p,
-.ingredients-list,
-.ingredients {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-
-.h2 {
+h2 {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 20px;
+    bottom: 4rem;
+    left: 2rem;
+
+    display:flex;
+    align-items: center;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color:white;
 }
 
-.b {
+button {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    top: 0.5rem;
+    right: 0.5rem;
+    border:none;
     font-size: 20px;
     font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color:gray;
+    padding : 0.5rem;
+    border-radius : 0.3rem;
+
+    &:hover{
+        color:white;
+        background-color: lightgray;
+        cursor:pointer;
+    }
 }
 
-.p {
+p {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -78,6 +84,13 @@ article{
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+li{
+    position:absolute;
+    bottom:1rem;
+    left:1rem;
+    background-color:white;
+}
+
 .ingredients-list {
     list-style-type: none;
     text-align: center;
@@ -86,6 +99,4 @@ article{
 .ingredients {
     font-size: 18px;
     margin-bottom: 10px;
-}
-}
 }

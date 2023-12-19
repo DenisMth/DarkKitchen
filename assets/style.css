@@ -1,11 +1,46 @@
-* {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+body {
+  width: 100%;
+}
+
+main {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 article {
@@ -14,46 +49,50 @@ article {
   flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 20rem;
+  height: 20rem;
   margin-bottom: 20px;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-articleentrees__0:hover .ingredients {
-  opacity: 1;
+
+.appetizers:hover {
+  opacity: 0.5;
   transform: translateY(0);
 }
-article article .h2,
-article article .b,
-article article .p,
-article article .ingredients-list,
-article article .ingredients {
+
+h2 {
+  position: absolute;
+  bottom: 4rem;
+  left: 2rem;
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-article article .h2 {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 20px;
+  align-items: center;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: white;
 }
-article article .b {
+
+button {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  top: 0.5rem;
+  right: 0.5rem;
+  border: none;
   font-size: 20px;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: gray;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
 }
-article article .p {
+button:hover {
+  color: white;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+p {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -66,11 +105,20 @@ article article .p {
   transform: translateY(-100%);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-article article .ingredients-list {
+
+li {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: white;
+}
+
+.ingredients-list {
   list-style-type: none;
   text-align: center;
 }
-article article .ingredients {
+
+.ingredients {
   font-size: 18px;
   margin-bottom: 10px;
 }/*# sourceMappingURL=style.css.map */
