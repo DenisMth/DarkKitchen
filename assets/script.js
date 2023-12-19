@@ -11,7 +11,7 @@ let food_entrees = [
         ingredients: ["eggs", "mayonnaise", "mustard", "paprika"],
         vegetarian: true,
         price: 5.50,
-        picture: "assets/resources/images/deviled eggs.jpg",
+        picture: "assets/resources/images/deviled_eggs.jpg",
     },
     {
         name: "Stuffed Mushrooms",
@@ -81,7 +81,7 @@ let food_entrees = [
         ingredients: ["avocado", "tomatoes", "onion", "lime", "tortilla chips"],
         vegetarian: true,
         price: 8.25,
-        picture: "assets/resources/images/guacamole-with-tortilla-chips Mobile-1300x1150.webp",
+        picture: "assets/resources/images/guacamole-with-tortilla-chips.jpg",
     },
 ];
 
@@ -276,29 +276,36 @@ let  food_desserts =[
 
 
 function divise_body() {
-    let header = document.createElement("HEADER");
+    let header = document.createElement("header");
     document.body.appendChild(header);
 
-    let main = document.createElement("MAIN");
+    let main = document.createElement("main");
     document.body.appendChild(main);
 
-    let footer = document.createElement("FOOTER");
+    let footer = document.createElement("footer");
     document.body.appendChild(footer);
    
     return {footer,main,header}
 }
 divise_body()
 
-function create_cards(list) {
+function create_cards(list, type) {
+
+        let category = document.createElement("h1");
+        let categoryContent = document.createTextNode(type);
+        category.appendChild(categoryContent);
+        document.querySelector('main').appendChild(category);
+
     list.forEach((food, index) => {
+
         let foodArticle = document.createElement("article");
-        let foodPrice = document.createElement("b");
+        let foodPrice = document.createElement("button");
         let foodImg = document.createElement("img");
         let foodName = document.createElement("h2");
         let foodIngredients = document.createElement("li");
         let foodVegan = document.createElement("p");
 
-        foodArticle.setAttribute("class", "entrees__" + index);
+        foodArticle.setAttribute("class", type + index);
         foodArticle.style.backgroundImage = `url(${food.picture})`;
 
         foodImg.src = food.picture;
@@ -322,6 +329,6 @@ function create_cards(list) {
     });
 }
 
-create_cards(food_entrees);
-create_cards(food_mainCourse);
-create_cards(food_desserts);
+create_cards(food_entrees, "appetizers");
+create_cards(food_mainCourse, "main course");
+create_cards(food_desserts, "desserts");
