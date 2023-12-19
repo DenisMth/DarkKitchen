@@ -11,7 +11,7 @@ let food_entrees = [
         ingredients: ["eggs", "mayonnaise", "mustard", "paprika"],
         vegetarian: true,
         price: 5.50,
-        picture: "assets/resources/images/deviled eggs.jpg",
+        picture: 'assets/resources/images/"deviled_eggs".jpg',
     },
     {
         name: "Stuffed Mushrooms",
@@ -289,16 +289,20 @@ function divise_body() {
 }
 divise_body()
 
-function create_cards(list) {
+function create_cards(list,type) {
+    let titre = document.createElement("h1")
+    titre.textContent = "List of " + type ;
+    document.querySelector('main').appendChild(titre)
+    
     list.forEach((food, index) => {
         let foodArticle = document.createElement("article");
-        let foodPrice = document.createElement("b");
+        let foodPrice = document.createElement("button");
         let foodImg = document.createElement("img");
         let foodName = document.createElement("h2");
         let foodIngredients = document.createElement("li");
         let foodVegan = document.createElement("p");
 
-        foodArticle.setAttribute("class", "entrees__" + index);
+        foodArticle.setAttribute("class", type + "_" +index);
         foodArticle.style.backgroundImage = `url(${food.picture})`;
 
         foodImg.src = food.picture;
@@ -322,6 +326,7 @@ function create_cards(list) {
     });
 }
 
-create_cards(food_entrees);
-create_cards(food_mainCourse);
-create_cards(food_desserts);
+create_cards(food_entrees,"entrees");
+/*create_cards(food_mainCourse,"mainCourse");
+create_cards(food_desserts,"dessert");
+*/
