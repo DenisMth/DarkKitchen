@@ -64,13 +64,9 @@ header {
   margin-bottom: 3rem;
   background-color: hsl(0, 0%, 63%);
   position: relative;
-}
-header .vegetarianButton {
-  position: absolute;
-  background-color: hsl(110, 70%, 36%);
-  height: 3rem;
-  top: 9rem;
-  left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
@@ -79,7 +75,22 @@ footer {
   background-color: hsl(0, 0%, 63%);
 }
 
-main {
+main .buttonsBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  height: 3rem;
+  padding-left: 0.5rem;
+  margin-bottom: 3rem;
+}
+main .buttonsBlock .vegetarianButton {
+  background-color: hsl(110, 70%, 36%);
+}
+main .cardsBlock {
+  width: 100%;
   margin-left: 2rem;
   display: flex;
   flex-direction: row;
@@ -147,9 +158,6 @@ section li {
 }
 
 button {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
   border: none;
   font-size: 20px;
   font-weight: bold;
@@ -162,6 +170,12 @@ button:hover {
   color: white;
   background-color: lightgray;
   cursor: pointer;
+}
+
+.cardButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .darkMode {
