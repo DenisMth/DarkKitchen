@@ -310,7 +310,7 @@ function create_cards(list,type) {
         foodImg.alt = "Image of " + food.name;
         foodImg.title = "Description: bla bla bla";
 
-        foodPrice.textContent = "Price " + food.price + " €" ;
+        foodPrice.textContent = food.price + " €" ;
         foodName.textContent = food.name;
         foodIngredients.textContent = "Ingredients: " + food.ingredients.join(", ");
 
@@ -349,7 +349,8 @@ function create_cards(list,type) {
   function create_button_veggie() {
     let button = document.createElement("button");
     button.addEventListener('click', veggie);
-    button.textContent = "vegetarian ?";
+    button.textContent = "veggie";
+    button.className = "vegetarianButton";
     document.querySelector('header').appendChild(button);
   }
 
