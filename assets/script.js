@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let food_entrees = [
     {
         name: "Bruschetta",
@@ -273,22 +272,28 @@ let  food_desserts =[
         },
     ];
 
-    console.log(food_entrees);
+  let buttonsBlock = document.createElement("div");
+  buttonsBlock.className = "buttonsBlock";
+  document.querySelector("main").appendChild(buttonsBlock);
 
+  let cardsBlock = document.createElement("div");
+  cardsBlock.className = "cardsBlock";
+  document.querySelector("main").appendChild(cardsBlock);
 
-function divise_body() {
-    let header = document.createElement("HEADER");
-    document.body.appendChild(header);
+  document.addEventListener("DOMContentLoaded", function() {
+    create_button_veggie();
+    create_button_dark();
+    create_button_entrees(); 
+    create_button_meal();
+    create_button_dessert();  
+  });
 
-    let main = document.createElement("MAIN");
-    document.body.appendChild(main);
-
-    let footer = document.createElement("FOOTER");
-    document.body.appendChild(footer);
-   
-    return {footer,main,header}
-}
-divise_body()
+  function clear_cards () {
+    let cardsremove = cardsBlock;
+    cardsremove.innerHTML='';
+    let title = document.querySelector ('h1');
+    title.remove();
+  }
 
 function create_cards(list,type) {
     let titre = document.createElement("h1")
@@ -299,6 +304,7 @@ function create_cards(list,type) {
         let foodArticle = document.createElement("article");
         let section = document.createElement("section")
         let foodPrice = document.createElement("button");
+        foodPrice.className = "cardButton";
         let foodImg = document.createElement("img");
         let foodName = document.createElement("h2");
         let foodIngredients = document.createElement("li");
@@ -331,7 +337,7 @@ function create_cards(list,type) {
         section.appendChild(foodIngredients);
         foodArticle.appendChild(foodVeggie);
 
-        document.querySelector('main').appendChild(foodArticle);
+        cardsBlock.appendChild(foodArticle);
     });
 }
 
@@ -340,19 +346,20 @@ function create_cards(list,type) {
         body.classList.toggle("dark-mode");
     }
   
-  function create_button() {
-    let button = document.createElement("button");
-    button.className = "darkMode";
-    button.addEventListener('click', dark_mode);
-    document.querySelector('header').appendChild(button);
-  }
+    function create_button_dark() {
+      let button = document.createElement("button");
+      button.className = "dark";
+      button.className = "darkMode";
+      button.addEventListener('click', dark_mode);
+      document.querySelector('header').appendChild(button);
+    }
 
   function create_button_veggie() {
     let button = document.createElement("button");
     button.addEventListener('click', veggie);
     button.textContent = "veggie";
     button.className = "vegetarianButton";
-    document.querySelector('header').appendChild(button);
+    buttonsBlock.appendChild(button);
   }
 
   function veggie() {
@@ -367,11 +374,32 @@ function create_cards(list,type) {
     });
   }
 
-create_cards(food_entrees,"entrees");
-create_cards(food_mainCourse,"mainCourse");
-create_cards(food_desserts,"dessert");
-create_button_veggie();
-create_button();
+  function create_button_entrees () {
 
-=======
->>>>>>> mealDivision
+    let button = document.createElement("button");
+    button.className = "appetizers";
+    button.addEventListener("click", clear_cards);
+    button.addEventListener("click", () => create_cards(food_entrees, "entrees"));
+    button.textContent = "Show Appetizers"
+    buttonsBlock.appendChild(button);
+  }
+
+  function create_button_meal () {
+
+    let button = document.createElement("button");
+    button.className = "mainCourse";
+    button.addEventListener("click", clear_cards);
+    button.addEventListener("click", () => create_cards(food_mainCourse,"mainCourse"));
+    button.textContent = "Show Feast"
+    buttonsBlock.appendChild(button);
+  }
+
+  function create_button_dessert () {
+
+    let button = document.createElement("button");
+    button.className = "dessert";
+    button.addEventListener("click", clear_cards);
+    button.addEventListener("click", () => create_cards(food_desserts, "dessert"));
+    button.textContent = "Show dessert"
+    buttonsBlock.appendChild(button);
+  }
