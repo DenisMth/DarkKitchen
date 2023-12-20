@@ -417,6 +417,97 @@ function create_cards(list,type) {
     buttonsBlock.appendChild(button);
   }
 
-  create_cards(food_entrees, "entrees");
-  create_cards(food_mainCourse,"mainCourse");
-  create_cards(food_desserts, "dessert");
+  document.addEventListener("DOMContentLoaded", function () {
+    let panier = [];
+    let total = 0;
+
+    let elementsPanier = document.createElement("ul");
+    elementsPanier.id = "elements-panier";
+    document.querySelector("main").appendChild(elementsPanier);
+
+    let totalAffichage = document.createElement("p");
+    totalAffichage.id = "total";
+    document.querySelector("main").appendChild(totalAffichage);
+
+    function mettreAJourAffichagePanier() {
+      elementsPanier.innerHTML = "";
+
+      panier.forEach((item) => {
+        const elementPanier = document.createElement("li");
+        elementPanier.textContent = `${item.name} - ${item.price.toFixed(2)} € x${item.quantity}`;
+        elementsPanier.appendChild(elementPanier);
+      });
+
+      totalAffichage.textContent = `Total : ${total.toFixed(2)} €`;
+    }
+
+    function ajouterAuPanier(food) {
+      const articleExistante = panier.find((item) => item.name === food.name);
+
+      if (articleExistante) {
+        articleExistante.quantity += 1;
+      } else {
+        const nouvelElement = {
+          name: food.name,
+          price: food.price,
+          quantity: 1,
+        };
+        panier.push(nouvelElement);
+      }
+
+      total += food.price;
+      mettreAJourAffichagePanier();
+    }
+
+    function create_cards(liste, type) {
+      let cardsBlock = document.createElement("div");
+      cardsBlock.className = "cardsBlock";
+      document.querySelector("main").appendChild(cardsBlock);
+
+      liste.forEach((food, index) => {
+        let foodArticle = document.createElement("article");
+        let section = document.createElement("section");
+        let foodPrice = document.createElement("button");
+        foodPrice.className = "cardButton";
+        let foodImg = document.createElement("img");
+        let foodName = document.createElement("h2");
+        let foodIngredients = document.createElement("li");
+        let foodVeggie = document.createElement("img");
+
+        foodArticle.setAttribute("class", type + "_" + index);
+        foodArticle.style.backgroundImage = `url(${food.picture})`;
+
+        foodImg.src = food.picture;
+        foodImg.alt = "Image de " + food.name;
+
+        foodPrice.textContent = food.price + " €";  // Utiliser le bouton existant
+        foodName.textContent = food.name;
+        foodIngredients.textContent = "Ingrédients : " + food.ingredients.join(", ");
+
+        if (food.vegetarian === true) {
+          foodVeggie.src = "assets/resources/images/plant.svg";
+          foodVeggie.setAttribute("class", "vegetarian");
+          foodArticle.appendChild(foodVeggie);
+        }
+
+        if (food.vegetarian) {
+          foodVeggie.textContent = "Végétarien";
+        }
+
+        foodArticle.appendChild(foodPrice);
+        section.appendChild(foodName);
+        foodArticle.appendChild(section);
+        section.appendChild(foodIngredients);
+        foodArticle.appendChild(foodVeggie);
+
+        // Utiliser le bouton existant
+        foodPrice.addEventListener("click", () => ajouterAuPanier(food));
+
+        cardsBlock.appendChild(foodArticle);
+      });
+    }
+
+    create_cards(food_entrees, "entrees");
+    create_cards(food_mainCourse, "mainCourse");
+    create_cards(food_desserts, "dessert");
+  });
