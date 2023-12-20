@@ -272,22 +272,20 @@ let  food_desserts =[
         },
     ];
 
-    console.log(food_entrees);
+    document.addEventListener("DOMContentLoaded", function() {
+      create_button_veggie();
+      create_button_dark();
+      create_button_entrees(); 
+      create_button_meal();
+      create_button_dessert();  
+    });
 
-
-function divise_body() {
-    let header = document.createElement("HEADER");
-    document.body.appendChild(header);
-
-    let main = document.createElement("MAIN");
-    document.body.appendChild(main);
-
-    let footer = document.createElement("FOOTER");
-    document.body.appendChild(footer);
-   
-    return {footer,main,header}
-}
-divise_body()
+    function clear_cards () {
+      let cardsremove = document.querySelector('main');
+      cardsremove.innerHTML='';
+      let title = document.querySelector ('h1');
+      title.remove();
+    }
 
 function create_cards(list,type) {
     let titre = document.createElement("h1")
@@ -333,19 +331,20 @@ function create_cards(list,type) {
         document.querySelector('main').appendChild(foodArticle);
     });
 }
-
     function dark_mode() {
         let body = document.body;
         body.classList.toggle("dark-mode");
     }
   
-  function create_button() {
+  function create_button_dark() {
     let button = document.createElement("button");
+    button.className = "dark";
     button.className = "darkMode";
     button.addEventListener('click', dark_mode);
     document.querySelector('header').appendChild(button);
   }
 
+<<<<<<< HEAD
   function create_button_veggie() {
     let button = document.createElement("button");
     button.addEventListener('click', veggie);
@@ -354,6 +353,8 @@ function create_cards(list,type) {
     document.querySelector('header').appendChild(button);
   }
 
+=======
+>>>>>>> mealDivision
   function veggie() {
     let cards = document.querySelectorAll("article");
     cards.forEach(card => {
@@ -365,10 +366,130 @@ function create_cards(list,type) {
       }
     });
   }
+ 
+  function create_button_veggie() {
+    let button = document.createElement("button");
+    button.className = "veggie";
+    button.addEventListener('click', veggie);
+    button.textContent = "vegetarian ?";
+    document.querySelector('header').appendChild(button);
+  }
 
-create_cards(food_entrees,"entrees");
-create_cards(food_mainCourse,"mainCourse");
-create_cards(food_desserts,"dessert");
-create_button_veggie();
-create_button();
+  function create_button_entrees () {
 
+    let button = document.createElement("button");
+    button.className = "appetizers";
+    button.addEventListener("click", clear_cards);
+    button.addEventListener("click", () => create_cards(food_entrees, "entrees"));
+    button.textContent = "Show Appetizers"
+    document.querySelector('footer').appendChild(button);
+  }
+
+  function create_button_meal () {
+
+    let button = document.createElement("button");
+    button.className = "mainCourse";
+    button.addEventListener("click", clear_cards);
+    button.addEventListener("click", () => create_cards(food_mainCourse,"mainCourse"));
+    button.textContent = "Show Feast"
+    document.querySelector('footer').appendChild(button);
+  }
+
+  function create_button_dessert () {
+
+    let button = document.createElement("button");
+    button.className = "dessert";
+    button.addEventListener("click", clear_cards);
+    button.addEventListener("click", () => create_cards(food_desserts, "dessert"));
+    button.textContent = "Show dessert"
+    document.querySelector('footer').appendChild(button);
+  }
+
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    createHeader();
+    createOrderForm();
+    createOrderSummary();
+  });
+  
+  function createHeader() {
+    const header = document.createElement("header");
+    const h1 = document.createElement("h1");
+    h1.textContent = "Online Food Delivery";
+    header.appendChild(h1);
+    document.body.appendChild(header);
+  }
+  
+  function createOrderForm() {
+    const main = document.createElement("main");
+  
+    const orderFormSection = document.createElement("section");
+    orderFormSection.id = "orderForm";
+  
+    const h2OrderForm = document.createElement("h2");
+    h2OrderForm.textContent = "Place Your Order";
+    orderFormSection.appendChild(h2OrderForm);
+  
+    const form = document.createElement("form");
+    form.id = "foodOrderForm";
+  
+    const labels = ["First Name", "Last Name", "Address"];
+  
+    labels.forEach((labelText) => {
+      const label = document.createElement("label");
+      label.textContent = labelText + ":";
+      const input = document.createElement("input");
+      input.type = "text";
+      input.required = true;
+      label.appendChild(input);
+      form.appendChild(label);
+    });
+  
+    const submitButton = document.createElement("button");
+    submitButton.type = "button";
+    submitButton.textContent = "Place Order";
+    submitButton.addEventListener("click", submitOrder);
+    form.appendChild(submitButton);
+  
+    orderFormSection.appendChild(form);
+    main.appendChild(orderFormSection);
+  
+    document.body.appendChild(main);
+  }
+  
+  function createOrderSummary() {
+    const main = document.querySelector("main");
+  
+    const orderSummarySection = document.createElement("section");
+    orderSummarySection.id = "orderSummary";
+  
+    const h2OrderSummary = document.createElement("h2");
+    h2OrderSummary.textContent = "Your Order Summary";
+    orderSummarySection.appendChild(h2OrderSummary);
+  
+    const summaryContent = document.createElement("div");
+    summaryContent.id = "summaryContent";
+    orderSummarySection.appendChild(summaryContent);
+  
+    main.appendChild(orderSummarySection);
+  }
+  
+  function submitOrder() {
+    const firstName = document.getElementById("foodOrderForm").elements[0].value;
+    const lastName = document.getElementById("foodOrderForm").elements[1].value;
+    const address = document.getElementById("foodOrderForm").elements[2].value;
+  
+    if (firstName && lastName && address) {
+      const summaryContent = document.getElementById("summaryContent");
+      summaryContent.innerHTML = `
+        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Address:</strong> ${address}</p>
+        <p><em>Your order has been placed. Thank you!</em></p>
+      `;
+    } else {
+      alert("Please fill in all fields.");
+    }
+  }
