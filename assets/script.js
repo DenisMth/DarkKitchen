@@ -296,9 +296,6 @@ let  food_desserts =[
   }
 
 function create_cards(list,type) {
-    let titre = document.createElement("h1")
-    titre.textContent = "List of " + type ;
-    document.querySelector('header').appendChild(titre)
     
     list.forEach((food, index) => {
         let foodArticle = document.createElement("article");
@@ -315,7 +312,6 @@ function create_cards(list,type) {
 
         foodImg.src = food.picture;
         foodImg.alt = "Image of " + food.name;
-        foodImg.title = "Description: bla bla bla";
 
         foodPrice.textContent = food.price + " €" ;
         foodName.textContent = food.name;
@@ -379,9 +375,16 @@ function create_cards(list,type) {
     let button = document.createElement("button");
     button.className = "appetizers";
     button.addEventListener("click", clear_cards);
-    button.addEventListener("click", () => create_cards(food_entrees, "entrees"));
-    button.textContent = "Show Appetizers"
+    button.addEventListener("click", () => {
+      create_cards(food_entrees, "entrees")
+      let titre = document.createElement("h1");
+      titre.textContent = "List of appetizers" ;
+      document.querySelector('header').appendChild(titre);
+    });
+    button.textContent = "Show Appetizers";
     buttonsBlock.appendChild(button);
+
+    
   }
 
   function create_button_meal () {
@@ -389,8 +392,13 @@ function create_cards(list,type) {
     let button = document.createElement("button");
     button.className = "mainCourse";
     button.addEventListener("click", clear_cards);
-    button.addEventListener("click", () => create_cards(food_mainCourse,"mainCourse"));
-    button.textContent = "Show Feast"
+    button.addEventListener("click", () => {
+      create_cards(food_mainCourse,"mainCourse");
+      let titre = document.createElement("h1");
+      titre.textContent = "List of main courses" ;
+      document.querySelector('header').appendChild(titre);
+    });
+    button.textContent = "Show Feast";
     buttonsBlock.appendChild(button);
   }
 
@@ -399,7 +407,16 @@ function create_cards(list,type) {
     let button = document.createElement("button");
     button.className = "dessert";
     button.addEventListener("click", clear_cards);
-    button.addEventListener("click", () => create_cards(food_desserts, "dessert"));
-    button.textContent = "Show dessert"
+    button.addEventListener("click", () => {
+      create_cards(food_desserts, "dessert");
+      let titre = document.createElement("h1");
+      titre.textContent = "List of desserts" ;
+      document.querySelector('header').appendChild(titre);
+    });
+    button.textContent = "Show dessert";
     buttonsBlock.appendChild(button);
   }
+
+  create_cards(food_entrees, "entrees");
+  create_cards(food_mainCourse,"mainCourse");
+  create_cards(food_desserts, "dessert");
