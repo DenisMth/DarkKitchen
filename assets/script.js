@@ -272,22 +272,20 @@ let  food_desserts =[
         },
     ];
 
-    console.log(food_entrees);
+    document.addEventListener("DOMContentLoaded", function() {
+      create_button_veggie();
+      create_button_dark();
+      create_button_entrees(); 
+      create_button_meal();
+      create_button_dessert();  
+    });
 
-
-function divise_body() {
-    let header = document.createElement("HEADER");
-    document.body.appendChild(header);
-
-    let main = document.createElement("MAIN");
-    document.body.appendChild(main);
-
-    let footer = document.createElement("FOOTER");
-    document.body.appendChild(footer);
-   
-    return {footer,main,header}
-}
-divise_body()
+    function clear_cards () {
+      let cardsremove = document.querySelector('main');
+      cardsremove.innerHTML='';
+      let title = document.querySelector ('h1');
+      title.remove();
+    }
 
 function create_cards(list,type) {
     let titre = document.createElement("h1")
@@ -339,17 +337,11 @@ function create_cards(list,type) {
         body.classList.toggle("dark-mode");
     }
   
-  function create_button() {
+  function create_button_dark() {
     let button = document.createElement("button");
+    button.className = "dark";
     button.className = "darkMode";
     button.addEventListener('click', dark_mode);
-    document.querySelector('header').appendChild(button);
-  }
-
-  function create_button_veggie() {
-    let button = document.createElement("button");
-    button.addEventListener('click', veggie);
-    button.textContent = "vegetarian ?";
     document.querySelector('header').appendChild(button);
   }
 
@@ -364,10 +356,41 @@ function create_cards(list,type) {
       }
     });
   }
+ 
+  function create_button_veggie() {
+    let button = document.createElement("button");
+    button.className = "veggie";
+    button.addEventListener('click', veggie);
+    button.textContent = "vegetarian ?";
+    document.querySelector('header').appendChild(button);
+  }
 
-create_cards(food_entrees,"entrees");
-create_cards(food_mainCourse,"mainCourse");
-create_cards(food_desserts,"dessert");
-create_button_veggie();
-create_button();
+  function create_button_entrees () {
 
+    let button = document.createElement("button");
+    button.className = "appetizers";
+    button.addEventListener("click", clear_cards);
+    button.addEventListener("click", () => create_cards(food_entrees, "entrees"));
+    button.textContent = "Show Appetizers"
+    document.querySelector('footer').appendChild(button);
+  }
+
+  function create_button_meal () {
+
+    let button = document.createElement("button");
+    button.className = "mainCourse";
+    button.addEventListener("click", clear_cards);
+    button.addEventListener("click", () => create_cards(food_mainCourse,"mainCourse"));
+    button.textContent = "Show Feast"
+    document.querySelector('footer').appendChild(button);
+  }
+
+  function create_button_dessert () {
+
+    let button = document.createElement("button");
+    button.className = "dessert";
+    button.addEventListener("click", clear_cards);
+    button.addEventListener("click", () => create_cards(food_desserts, "dessert"));
+    button.textContent = "Show dessert"
+    document.querySelector('footer').appendChild(button);
+  }
