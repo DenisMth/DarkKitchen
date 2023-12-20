@@ -301,7 +301,7 @@ function create_cards(list,type) {
         let foodImg = document.createElement("img");
         let foodName = document.createElement("h2");
         let foodIngredients = document.createElement("li");
-        let foodVegan = document.createElement("p");
+        let foodVeggie =document.createElement("img");
 
         foodArticle.setAttribute("class", type + "_" +index);
         foodArticle.style.backgroundImage = `url(${food.picture})`;
@@ -314,24 +314,30 @@ function create_cards(list,type) {
         foodName.textContent = food.name;
         foodIngredients.textContent = "Ingredients: " + food.ingredients.join(", ");
 
+        if (food.vegetarian === true) {
+            foodVeggie.src = "assets/resources/images/plant.svg",
+            foodVeggie.setAttribute("class", "vegetarian");
+            foodArticle.appendChild(foodVeggie)
+          }
+
         if (food.vegetarian) {
-            foodVegan.textContent = "Vegetarian";
+            foodVeggie.textContent = "Vegetarian";
         }
 
         foodArticle.appendChild(foodPrice);
         section.appendChild(foodName);
         foodArticle.appendChild(section)
         section.appendChild(foodIngredients);
-        foodArticle.appendChild(foodVegan);
+        foodArticle.appendChild(foodVeggie);
 
         document.querySelector('main').appendChild(foodArticle);
     });
 }
 
-function dark_mode() {
-    let body = document.body;
-    body.classList.toggle("dark-mode");
-  }
+    function dark_mode() {
+        let body = document.body;
+        body.classList.toggle("dark-mode");
+    }
   
   function create_button() {
     let button = document.createElement("button");
@@ -340,9 +346,28 @@ function dark_mode() {
     document.querySelector('header').appendChild(button);
   }
 
+  function create_button_veggie() {
+    let button = document.createElement("button");
+    button.addEventListener('click', veggie);
+    button.textContent = "vegetarian ?";
+    document.querySelector('header').appendChild(button);
+  }
+
+  function veggie() {
+    let cards = document.querySelectorAll("article");
+    cards.forEach(card => {
+      let noMeat = card.querySelector('img.vegetarian');
+      if (noMeat) {
+        card.style.display = ''; 
+      } else {
+        card.style.display = 'none';  
+      }
+    });
+  }
 
 create_cards(food_entrees,"entrees");
 create_cards(food_mainCourse,"mainCourse");
 create_cards(food_desserts,"dessert");
-create_button()
+create_button_veggie();
+create_button();
 
