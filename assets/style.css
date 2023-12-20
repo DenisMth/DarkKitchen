@@ -55,6 +55,7 @@ article {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding-right: 0.5rem;
 }
 
 .appetizers:hover {
@@ -121,4 +122,8 @@ li {
 .ingredients {
   font-size: 18px;
   margin-bottom: 10px;
+}
+
+ul {
+  position: relative;
 }/*# sourceMappingURL=style.css.map */
