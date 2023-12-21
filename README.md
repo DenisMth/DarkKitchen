@@ -1,7 +1,5 @@
 # DarkKitchen
 
-<<<<<<< HEAD
 https://denismth.github.io/DarkKitchen/
-=======
-https://denismth.github.io/DarkKitchen/
->>>>>>> dev
+
+on a un panier fonctionnel dans la branche cart_achat mais il n'est pas présent sur le main parce qu'on a pas fait le CSS encore
