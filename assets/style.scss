@@ -2,6 +2,10 @@
 @import "__fontStyle.scss";
 @import "__variables.scss";
 
+html{
+    overflow-x:hidden;
+}
+
 body {
     width:100%;
     color : $textColor;
@@ -212,6 +216,6 @@ article:hover{
     cursor:default;
     scale:1.05;
     section{
-        height:8rem;
+        height:10rem;
     }
 }

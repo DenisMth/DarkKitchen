@@ -38,6 +38,10 @@ h3 {
   font-size: 16px;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   width: 100%;
   color: hsl(0, 3%, 12%);
@@ -223,5 +227,5 @@ article:hover {
   scale: 1.05;
 }
 article:hover section {
-  height: 8rem;
+  height: 10rem;
 }/*# sourceMappingURL=style.css.map */
