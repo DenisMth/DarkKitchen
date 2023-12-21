@@ -31,6 +31,17 @@ body {
             color: $textColorDark;
         }
     }
+
+    footer{
+
+        background-color: $darkHeaderBackground;
+        color : $darkHeader;
+
+        section{
+            background-color: $sectionBackgroundDark ;
+            color: $textColorDark;
+        }
+    }
 }
 
 header{
@@ -48,6 +59,26 @@ footer {
     height : 20rem;
     margin-top:3rem;
     background-color: $headerBackground;
+    position:relative;
+
+    p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5rem;
+        font-size:32px;
+        font-weight: bold;
+    }
+
+    button{
+        margin-left:1rem;
+    }
+
+    section{
+        left:3rem;
+        top:10rem;
+        height:fit-content;
+    }
 }
 
 main {

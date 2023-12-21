@@ -34,6 +34,10 @@ h2 {
   font-size: 24px;
 }
 
+h3 {
+  font-size: 16px;
+}
+
 body {
   width: 100%;
   color: hsl(0, 3%, 12%);
@@ -58,6 +62,14 @@ body {
   background-color: hsl(0, 1%, 26%);
   color: hsl(0, 22%, 85%);
 }
+.dark-mode footer {
+  background-color: hsl(0, 1%, 13%);
+  color: hsl(0, 1%, 45%);
+}
+.dark-mode footer section {
+  background-color: hsl(0, 1%, 26%);
+  color: hsl(0, 22%, 85%);
+}
 
 header {
   height: 13rem;
@@ -73,6 +85,24 @@ footer {
   height: 20rem;
   margin-top: 3rem;
   background-color: hsl(0, 0%, 63%);
+  position: relative;
+}
+footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+  font-size: 32px;
+  font-weight: bold;
+}
+footer button {
+  margin-left: 1rem;
+}
+footer section {
+  left: 3rem;
+  top: 10rem;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 main .buttonsBlock {

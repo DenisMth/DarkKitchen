@@ -285,7 +285,8 @@ let  food_desserts =[
     create_button_dark();
     create_button_entrees(); 
     create_button_meal();
-    create_button_dessert();  
+    create_button_dessert();
+    create_Order();
   });
 
   function clear_cards () {
@@ -415,6 +416,103 @@ function create_cards(list,type) {
     });
     button.textContent = "Show dessert";
     buttonsBlock.appendChild(button);
+  }
+
+  function create_Order() {
+    let livraison = document.createElement("p");
+    livraison.textContent = "Service de livraison !";
+    document.querySelector("footer").appendChild(livraison);
+  
+    let order = document.createElement("section");
+    order.id = "order_Form";
+  
+    let h3_Order_Form = document.createElement("h3");
+    h3_Order_Form.textContent = "Place Your Order";
+    order.appendChild(h3_Order_Form);
+  
+    let form = document.createElement("form");
+    form.id = "Order_Food_Form";
+  
+    let infos = ["First Name", "Last Name", "Address"];
+  
+    infos.forEach((infoText) => {
+      let label = document.createElement("label");
+      label.textContent = infoText + ":";
+      let input = document.createElement("input");
+      input.type = "text";
+      input.required = true;
+      label.appendChild(input);
+      form.appendChild(label);
+    });
+  
+    let button = document.createElement("button");
+    button.type = "button";
+    button.className = "submit";
+    button.textContent = "Place Order";
+    button.addEventListener("click", submit_Order);
+    button.addEventListener("click", createOrderSummary);
+    form.appendChild(button);
+    order.appendChild(form);
+    document.querySelector("footer").appendChild(order);
+  }
+
+  function submit_Order() {
+    let firstName = document.getElementById("Order_Food_Form").elements[0].value;
+    let lastName = document.getElementById("Order_Food_Form").elements[1].value;
+    let address = document.getElementById("Order_Food_Form").elements[2].value;
+  
+    if (firstName && lastName && address) {
+      let summary = document.getElementById("summaryContent");
+  
+      summary.innerHTML =
+        " Your name is : " +
+        firstName +
+        lastName +
+        ", you adress is : " +
+        address;
+    }
+  }
+
+  function createOrderSummary() {
+    let order_summary = document.createElement("section");
+    order_summary.id = "orderSummary";
+  
+    let h3_order_summary = document.createElement("h3");
+    h3_order_summary.textContent = "your info : ";
+    order_summary.appendChild(h3_order_summary);
+  
+    let summary_content = document.createElement("div");
+    summary_content.id = "summaryContent";
+    order_summary.appendChild(summary_content);
+  
+    document.querySelector("footer").appendChild(order_summary);
+  
+    let button = document.createElement("button");
+    button.type = "button";
+    button.className = "clearsummary";
+    button.textContent = "go back";
+    button.addEventListener("click", clear_summary);
+    document.querySelector("section#orderSummary").appendChild(button);
+  
+    let button_val = document.createElement("button");
+    button_val.type = "button";
+    button_val.className = "validation";
+    button_val.textContent = "Valid command";
+    button_val.addEventListener("click", valid_command);
+    document.querySelector("section#orderSummary").appendChild(button_val);
+  
+  }
+
+  function clear_summary () {
+
+    let summary_remove = document.querySelector("section#orderSummary");
+    summary_remove.remove();
+   
+  }
+  function valid_command () {
+    alert('Merci ! Votre commande est en cours de livraison')
+    window.location.reload();
+  
   }
 
   create_cards(food_entrees, "entrees");
